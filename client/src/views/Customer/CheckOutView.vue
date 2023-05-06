@@ -28,10 +28,10 @@
                             <img :src="item.productId.image" alt="" style="width:30px;height:30px;">
                         </td>
                         <td>{{ item.quantity }}</td>
-                        <td class="text-end">{{ item.productId.price }}</td>
+                        <td class="text-end">$ {{ item.productId.price }}</td>
                     </tr>
                     <tr>
-                        <td colspan="3">Total: <span class="float-end">$ {{ totalPrice }}</span></td>
+                        <td colspan="4">Total: <span class="float-end">$ {{ totalPrice }}</span></td>
                     </tr>
                 </tbody>
             </table>

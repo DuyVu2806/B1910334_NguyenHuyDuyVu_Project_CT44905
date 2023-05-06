@@ -7,7 +7,11 @@
   </template>
   <template v-if="$route.meta.navbar === 'navbar2'">
     <Navbar />
-    <router-view />
+    <main>
+      <router-view />
+    </main>
+    
+    <Footer />
   </template>
 </template>
 
@@ -16,8 +20,9 @@
 import Sidebar from './components/Admin/Sidebar/Sidebar.vue';
 import { sidebarWidth } from '@/components/Admin/Sidebar/state';
 import Navbar from "@/components/Customer/Navbar.vue";
+import Footer from "@/components/Customer/FooterView.vue"
 export default {
-  components: { Sidebar, Navbar },
+  components: { Sidebar, Navbar, Footer },
   setup() {
     return { sidebarWidth }
   }
@@ -31,6 +36,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+main {
+  min-height: 100vh;
 }
 
 #nav {

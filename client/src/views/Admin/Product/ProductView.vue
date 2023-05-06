@@ -123,9 +123,11 @@ export default ({
   filteredProducts() {
     return this.products.filter(product => {
       // nếu giá trị của biến search xuất hiện trong tên sản phẩm
-      // hoặc trong mô tả sản phẩm thì trả về true
+      // hoặc trong mô tả sản phẩm và category thì trả về true
       return product.name.toLowerCase().includes(this.search?.toLowerCase()) ||
-             product.description.toLowerCase().includes(this.search?.toLowerCase());
+             product.description.toLowerCase().includes(this.search?.toLowerCase())||
+             product.category.name.toLowerCase().includes(this.search?.toLowerCase())||
+             product.brand.toLowerCase().includes(this.search?.toLowerCase());
     });
   }
 }
