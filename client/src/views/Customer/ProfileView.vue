@@ -135,6 +135,7 @@ export default {
                     }
                 })
                 this.customer = response.data
+                localStorage.setItem("currentCus", JSON.stringify(this.customer.username));
                 alert('Profile updated successfully.')
             } catch (error) {
                 alert('Failed to update profile.')
