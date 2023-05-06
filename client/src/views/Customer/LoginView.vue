@@ -84,7 +84,9 @@ export default {
                     const token = localStorage.getItem('tokenCustomer')
                     if (token) {
                         const decoded = jwt_decode(token)
+                        const userId = jwt_decode(token).userId;
                         this.currentCus = decoded.username
+                        this.userId = userId;
                         this.setCurrentCus(decoded.username)
                         // Lấy username từ token giải mã được
                     }
@@ -97,7 +99,8 @@ export default {
                     })
                     // Chuyển hướng đến trang chính
                     this.$store.commit('SET_IS_LOGGED_IN_CUS', true);
-                    
+                    this.$store.dispatch('fetchMyOrderItemCount', this.userId);
+                    this.$store.dispatch('fetchCartItemCount', this.userId);
                     this.$router.push('/');
                 } else {
                     throw new Error(responseData.message);

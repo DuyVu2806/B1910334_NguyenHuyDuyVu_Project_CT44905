@@ -66,7 +66,7 @@ export default createStore({
       state.cartItemCount = 0;
     },
     resetOrderItemCount(state) {
-      state.myorderItems = 0;
+      state.myorderItemCount = 0;
     },
     removeFromCart(state, { productId, userId }) {
       const index = state.cart.findIndex(
