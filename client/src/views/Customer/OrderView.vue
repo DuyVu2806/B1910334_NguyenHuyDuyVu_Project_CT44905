@@ -23,7 +23,7 @@
                                     <td>{{ index + 1 }}</td>
                                     <td>{{ item.user.username }}</td>
                                     <td>{{ item.status }}</td>
-                                    <td>{{ item.dateOrdered }}</td>
+                                    <td>{{ formatDate(item.dateOrdered) }}</td>
                                     <td>
                                         <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
                                             v-bind:data-bs-target="'#modal-' + item._id">View Details</button>
@@ -74,6 +74,7 @@
             </div>
         </div>
     </div>
+    
 </template>
 
 <script>
@@ -84,6 +85,19 @@ export default {
         return {
             orders: [],
             loading: true,
+            formatDate(date) {
+                if (typeof date === 'string') {
+                    date = new Date(date);
+                }
+                if (date instanceof Date && !isNaN(date)) {
+                    const day = date.getDate();
+                    const month = date.getMonth() + 1;
+                    const year = date.getFullYear();
+                    return `${day}/${month}/${year}`;
+                } else {
+                    return '';
+                }
+            },
         }
 
     },
